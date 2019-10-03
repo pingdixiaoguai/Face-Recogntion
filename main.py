@@ -110,7 +110,7 @@ def eigen_face_core(one_d_train_image_all_set):
 
     """
     对矩阵covariance_matrix_temp的所有特征值进行排序，并消除那些小于指定阈值的特征值。 
-    因此，非零特征向量的数量可能少于（P-1）。(好像是会去掉第八个特征值对应的特征向量，1.17那个)
+    因此，非零特征向量的数量可能少于（P-1）。
     """
     eigen_vector = []
     for i in range(feature_vector.shape[1]):
@@ -219,9 +219,5 @@ def main():
 
 
 if __name__ == '__main__':
-    while(1):
+    while (1):
         main()
-
-
-
-
