@@ -203,11 +203,16 @@ def main():
     description:主函数
     :return: 无
     """
-    image_order = input('Enter test image name (a number between 1 to 10): ')  # 获取需要被识别的那张图片
+    # python没有do-while
+    image_order = input('Enter test image name (a number between 1 to 10, q to quit): ')  # 获取需要被识别的那张图片
+    if image_order == 'q':
+        quit()
     num = int(image_order)
     while num < 1 or num > 10:
-        print('illegal,again')
-        image_order = input('Enter test image name (a number between 1 to 10): ')
+        print('Illegal input,please input again')
+        image_order = input('Enter test image name (a number between 1 to 10, q to quit): ')
+        if image_order == 'q':
+            quit()
         num = int(image_order)
     test_image_path = 'TestDatabase/' + str(image_order) + '.jpg'  # 将获取到的图片路径拼接出来
     test_image = img.imread(test_image_path)  # 将图片读入
