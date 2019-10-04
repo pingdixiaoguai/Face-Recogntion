@@ -1,3 +1,7 @@
+import matplotlib.pyplot as plt  # plt 用于显示图片
+import matplotlib.image as img  # img 用于读取图片
+import os  # 需要使用这个库的函数来看看TrainDatabase下有多少个图片
+import numpy as np
 """
 date:20190928
 description:1.今天完成mat程序之将测试集转换为1维向量保存的程序（对应CreateDataBase）
@@ -10,11 +14,16 @@ description:1.完成函数eigen_face_core，此函数返回：mean_of_train_data
                                                  eigen_faces 训练数据库协方差矩阵的特征向量 (M*Nx(P-1))
                                                  centered_image_vectors 居中图像向量矩阵 (M*NxP)
 """
-import matplotlib.pyplot as plt  # plt 用于显示图片
-import matplotlib.image as img  # img 用于读取图片
-import os  # 需要使用这个库的函数来看看TrainDatabase下有多少个图片
-import numpy as np
 
+"""
+date:20191001
+description:1.完成所有工作
+"""
+
+"""
+Author:pdxg
+email:sylPDXG@qq.com
+"""
 
 def create_database(train_database_path='TrainDatabase/'):
     """
@@ -193,8 +202,12 @@ def main():
     description:主函数
     :return: 无
     """
-    image_order = input('Enter test image name (a number between '
-                        '1 to 10): ')  # 获取需要被识别的那张图片
+    image_order = input('Enter test image name (a number between 1 to 10): ')  # 获取需要被识别的那张图片
+    num = int(image_order)
+    while num < 1 or num > 10:
+        print('illegal,again')
+        image_order = input('Enter test image name (a number between 1 to 10): ')
+        num = int(image_order)
     test_image_path = 'TestDatabase/' + str(image_order) + '.jpg'  # 将获取到的图片路径拼接出来
     test_image = img.imread(test_image_path)  # 将图片读入
 
@@ -219,5 +232,5 @@ def main():
 
 
 if __name__ == '__main__':
-    while (1):
+    while 1:
         main()
