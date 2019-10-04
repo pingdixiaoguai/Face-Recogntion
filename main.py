@@ -25,6 +25,7 @@ Author:pdxg
 email:sylPDXG@qq.com
 """
 
+
 def create_database(train_database_path='TrainDatabase/'):
     """
     description:此功能将训练数据库的所有2D图像整形为1D列向量。
